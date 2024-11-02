@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 
 public class DaoConnection {
 	
-	private String driver="com.mysql.cj.jdbc.Driver";
-	private String url="jdbc:mysql://localhost:3306/eletrosales";
-	private String user="root";
-	private String password="";
+	private static final String driver="com.mysql.cj.jdbc.Driver";
+	private static final String  url="jdbc:mysql://localhost:3306/eletrosales";
+	private static final String user="root";
+	private static final String password="";
 	
-	private Connection conectar() {
+	public static Connection getConnection() {
 		Connection con=null;
 		try {
 			Class.forName(driver);
@@ -21,14 +21,14 @@ public class DaoConnection {
 			return null;
 		}
 	}
-	public void teste() {
-		try {
-			Connection con=conectar();
-			System.out.println(con);
-			System.out.println("conexao feita com sucesso!");
-			con.close();
-		}catch(Exception e) {
-			System.out.println(e);
-		}
-	}
+//	public void teste() {
+//		try {
+//			Connection con=getConnection();
+//			System.out.println(con);
+//			System.out.println("conexao feita com sucesso!");
+//			con.close();
+//		}catch(Exception e) {
+//			System.out.println(e);
+//		}
+//	}
 }
